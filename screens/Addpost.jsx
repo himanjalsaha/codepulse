@@ -29,7 +29,7 @@ const navigation = useNavigation();
     if (!result.canceled) {
       setImage(result.assets[0].uri);
     }
-    console.log(image);
+    console.log(image.mimeType);
   };
 
   function showToast() {
@@ -49,7 +49,7 @@ const navigation = useNavigation();
         const storage = getStorage();
 
         // Create a reference to the storage location
-        const storageRef = ref(storage, filename);
+        const storageRef = ref(storage, `posts/${filename}`);
 
         // Upload image to Firebase Storage
         await uploadBytes(storageRef, blob);
@@ -62,7 +62,7 @@ const navigation = useNavigation();
             creatoruid:currentuser.uid,
             img: downloadURL,
             photourl:currentuser.photoURL,
-
+            imgname : filename,
             time: serverTimestamp(),
             caption: caption,
           });

@@ -70,7 +70,7 @@ const Signup = () => {
     const storage = getStorage();
 
     // Create a reference to the storage location
-    const storageRef = ref(storage, filename);
+    const storageRef = ref(storage, `profilepic/${filename}`);
 
     // Upload image to Firebase Storage
     await uploadBytes(storageRef, blob);

@@ -3,9 +3,11 @@ import { View, ScrollView, Image, StyleSheet, Text } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 import { db } from '../Firebase/firebase'; // Assuming you have initialized Firebase in your project
+import { userauth } from '../context/AuthContext';
 
 const Navbar = () => {
   const [users, setUsers] = useState([]);
+  const { currentuser } = userauth();
 
   useEffect(() => {
     const unsubscribe = onSnapshot(query(collection(db, 'users')), (snapshot) => {
@@ -20,13 +22,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <View className="bg-neutral-800">
-      <Text className="text-white text-center font-semibold text-lg">Discover</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Discover</Text>
       <FlatList
-        className="bg-neutral-800 p-2"
+        contentContainerStyle={styles.userList}
         horizontal
         showsHorizontalScrollIndicator={false}
-        data={users}
+        data={users.filter(user => user.uid !== currentuser.uid)}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
@@ -43,6 +45,20 @@ const Navbar = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#333',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  title: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  userList: {
+    alignItems: 'center',
+  },
   itemContainer: {
     alignItems: 'center',
     marginRight: 10,

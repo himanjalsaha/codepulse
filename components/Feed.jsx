@@ -3,10 +3,9 @@ import { View, Image, StyleSheet, Text, FlatList, TouchableOpacity } from 'react
 import { HeartIcon, ShareIcon } from 'react-native-heroicons/outline';
 import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 import { db } from '../Firebase/firebase'; // Assuming you have initialized Firebase in your project
-
+import { Video } from 'expo-av'
 const Feed = () => {
   const [posts, setPosts] = useState([]);
-
   useEffect(() => {
     const unsubscribe = onSnapshot(query(collection(db, 'posts'),orderBy('time', 'desc')), (snapshot) => {
       const updatedPosts = [];
@@ -19,6 +18,7 @@ const Feed = () => {
 
     return unsubscribe;
   }, []);
+
 
   const formatTime = (timestamp) => {
     const date = new Date(timestamp);

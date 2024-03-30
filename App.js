@@ -10,6 +10,7 @@ import Profile from './screens/Profile';
 import { AuthProvider, userauth } from './context/AuthContext';
 import Privaterote from './routes/ProtectedRoute';
 import Addpost from './screens/Addpost';
+import Messages from './components/Messages';
 export default function App() {
   const Stack = createStackNavigator();
 
@@ -23,6 +24,8 @@ export default function App() {
     <Stack.Screen name='addpost' component={Addpost}/>
     <Stack.Screen name="login" component={Login} />
     <Stack.Screen name="signup" component={Signup} />
+    <Stack.Screen name="messages" component={Messages} />
+
        <Stack.Screen name='profile' component={Profile}/>
   </Stack.Navigator>
   </NavigationContainer>
