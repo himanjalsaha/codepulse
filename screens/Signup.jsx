@@ -90,9 +90,9 @@ const Signup = () => {
     
 
   });
-    if(currentuser){
+
       navigation.push('Home')
-    }
+    
       
     }
     catch(error){
@@ -104,11 +104,11 @@ const Signup = () => {
 
   return (
     <View className="flex-1 justify-center bg-neutral-800 p-4 items-center">
-      <Text className="text-3xl text-white font-bold">Signup</Text>
-      <TouchableOpacity className="flex justify-center items-center  " onPress={pickImage} >
+      <Text className="text-3xl text-white font-bold m-5">Signup</Text>
+      <TouchableOpacity className="flex justify-center items-center   " onPress={pickImage} >
       {image ?( <Image source={{ uri: image || defaultImageUri }} className="w-40 h-40 rounded-full" />):
       (
-        <Button title="Pick an image from camera roll " className="m-5 "  onPress={pickImage} />
+        <Button title="Pick an image from camera roll" className="rounded-lg" onPress={pickImage} />
 
 
       )}

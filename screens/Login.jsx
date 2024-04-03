@@ -60,9 +60,9 @@ const navigation = useNavigation()
 
   return (
     <View className="flex-1 justify-center bg-neutral-800 p-4 items-center">
-      <Text className="text-3xl text-white font-bold">Login</Text>
+      <Text className="text-3xl text-white m-3 font-bold">Clarity-Connect</Text>
 
-      {showImg && <Image  source={require('../assets/login.png')} />}
+      {showImg && <Image  source={require('../assets/owl.png')} className='w-60 h-60 rounded-xl' />}
 
       <View className="w-full p-4 rounded-lg">
         <TextInput

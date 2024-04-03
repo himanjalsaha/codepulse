@@ -49,7 +49,7 @@ const Feed = () => {
         </View >
         <View className="flex flex-row  items-center">
         <Image source={{uri:item.photourl}} className="w-10 h-10 rounded-full"/>
-        <Text style={styles.text}><Text style={styles.bold}>{item.createdby}</Text> {item.caption}</Text>
+        <Text className='w-64' style={styles.text}><Text style={styles.bold}>{item.createdby}</Text> {item.caption}</Text>
         </View>
    
         <Text style={styles.text}>{formatTime(item.time * 1000)}</Text>

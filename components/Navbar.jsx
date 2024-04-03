@@ -23,7 +23,11 @@ const Navbar = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Discover</Text>
+      <View className='flex flex-row items-center gap-1'>
+      <Text className="text-white font-bold text-lg">ClarityConnect</Text>
+       <Image source={require('../assets/cconnectlogo.png')} className='w-8 h-8 rounded-full' />
+      </View>
+
       <FlatList
         contentContainerStyle={styles.userList}
         horizontal
@@ -31,12 +35,14 @@ const Navbar = () => {
         data={users.filter(user => user.uid !== currentuser.uid)}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
+          <View className='h-24 w-24' style={styles.itemContainer}>
             <Image
+            
               source={{ uri: item.photoURL }} 
               style={styles.image}
+              className='absolute rounded-full'
             />
-            <Text style={styles.name}>{item.displayname}</Text>
+            <Text style={styles.name} className='relative top-16  text-white p-1 '>{item.displayname}</Text>
           </View>
         )}
       />
@@ -66,11 +72,10 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
-    borderRadius: 10,
     backgroundColor: 'white',
   },
   name: {
-    color: 'white',
+  
     marginTop: 5,
   },
 });
