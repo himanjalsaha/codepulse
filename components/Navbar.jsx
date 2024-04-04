@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <View style={styles.container}>
       <View className='flex flex-row items-center gap-1'>
-      <Text className="text-white font-bold text-lg">ClarityConnect</Text>
+      <Text className="text-white pl-20 font-bold text-lg">ClarityConnect</Text>
        <Image source={require('../assets/cconnectlogo.png')} className='w-8 h-8 rounded-full' />
       </View>
 
@@ -35,7 +35,7 @@ const Navbar = () => {
         data={users.filter(user => user.uid !== currentuser.uid)}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View className='h-24 w-24' style={styles.itemContainer}>
+          <View className='h-24 mt-1 w-24' style={styles.itemContainer}>
             <Image
             
               source={{ uri: item.photoURL }} 

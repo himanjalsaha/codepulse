@@ -100,15 +100,19 @@ const Profilecomponent = () => {
           <TouchableOpacity style={styles.modalCloseButton} onPress={() => setSelectedImage(null)}>
             <Text style={styles.modalCloseButtonText}>Close</Text>
           </TouchableOpacity>
-          <View style={styles.imageContainer} >
-            <TouchableOpacity onPress={deletepost} className="bottom-0 top-7 left-20 flex flex-row items-center bg-slate-400 p-2 rounded-md"  >
+          <TouchableOpacity onPress={deletepost} className="  left-24 w-40 hover:bg-slate-500 flex flex-row items-center bg-slate-400 p-2 rounded-md"  >
       <TrashIcon size={20} color={"red"} /><Text className="text-white font-bold">delete post</Text>
     </TouchableOpacity>
         
+          
+          <View style={styles.imageContainer} >
+         
+       
+         
   
 
 
-            <Image source={{ uri: selectedImage?.img }} className="h-full w-full" resizeMode='contain'  />
+            <Image source={{ uri: selectedImage?.img }} className="h-full w-full " resizeMode='contain'  />
             <View style={styles.textView} >
     <View className="flex flex-row justify-around items-end">
     <Text><Text className="font-bold m-2">{selectedImage?.createdby}</Text>{selectedImage?.caption}</Text>

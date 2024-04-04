@@ -19,7 +19,7 @@ const navigation = useNavigation();
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      // aspect: [4, 3],
+      aspect: [4, 3],
       quality: 1,
     });
  
@@ -65,7 +65,8 @@ const navigation = useNavigation();
             imgname : filename,
             time: serverTimestamp(),
             caption: caption,
-          });
+          
+          },  like=0);
           console.log("post added");
 
         
@@ -95,21 +96,21 @@ const navigation = useNavigation();
         <Text className="text-white p-5 text-2xl font-bold">Add a post</Text>
       <TextInput
           className="border border-gray-400  px-4 py-2  mb-4 outline outline-white text-white w-full my-5"
-          placeholder="caption"
+          placeholder="Write your story"
           multiline={true}
           placeholderTextColor="white"
           value={caption}
           onChangeText={setCaption}
         />
       <TouchableOpacity className="flex justify-center items-center flex-[0.8] bg-slate-500 border-2 border-white border-dashed" onPress={pickImage} >
-      {image ?( <Image source={{ uri: image || defaultImageUri }} style={{ width: '95%', height: '100%' ,   resizeMode: 'contain', }} />):
+      {image ?( <Image source={{ uri: image || defaultImageUri }} style={{ width: '95%', height: '100%' ,   resizeMode: 'contain', }} className="absolute"/>):
       (
-        <Button title="Pick an image from camera roll " className="m-5 "  onPress={pickImage} />
+        <Button title="Pick an image from camera roll " className="m-5"  onPress={pickImage} />
 
 
       )}
 
-{loading &&  <ActivityIndicator size="large" className="relative justify-center " color="#0000ff" />} 
+{loading &&  <ActivityIndicator size="large" className="relative justify-center items-center" color="#0000ff" />} 
 
 
 
